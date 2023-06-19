@@ -13,7 +13,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 		
 		System.out.println("##################");
-		System.out.println("#Spring Boot ");
+		System.out.println("#Spring Boot END");
 		System.out.println("##################");
 	}
 
