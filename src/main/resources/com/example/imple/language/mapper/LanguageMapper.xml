@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.imple.language.mapper.LanguageMapper">
+<select id="countAll">
+	select count(*) from country_language
+</select>
+
+<select id="selectAll">
+	select *
+	  from country_language
+	 order by country_language.country_code
+</select>
+
+<select id="selectCountry">
+	select * from country where code = #{country_code}
+</select>
+
+<resultMap type="com.example.imple.language.model.Language" id="withCountryResultMap">
+	<result property="countryCode" column="country_code"/>
+	<association property="country" column="country_code" select="selectCountry"/>
+</resultMap>
+
+<select id="selectAllWithCountry" resultMap="withCountryResultMap">
+	select *
+	  from country_language
+	  order by country_language.country_code
+</select>
+
+<select id="selectPage">
+	select * 
+	  from country_language
+	 order by country_language.country_code
+</select>
+
+<select id="selectPageWithCountry" resultMap="withCountryResultMap">
+	select * 
+	  from country_language
+	 order by country_language.country_code
+</select>
+
+<select id="selectByLanguage">
+	select * 
+	  from country_language
+	 where language = #{language}
+</select>
+
+<select id="selectByLanguageWithCountry" resultMap="withCountryResultMap">
+	 select * 
+	  from country_language
+	 where language = #{language}
+</select>
+
+<select id="selectByCountryCode">
+	select *
+	  from country_language
+	 where country_code = #{countryCode}
+</select>
+
+<!-- <select id="selectCitys"> -->
+<!-- 	select * -->
+<!-- 	  from city -->
+<!-- 	 where country_code = #{countryCode}  -->
+<!-- </select> -->
+<!-- <resultMap type="com.example.imple.country.model.Country" id="withCitysResultMap"> -->
+<!-- 	<result property="code" column="code"/> -->
+<!-- 	<collection property="citys" column="code" select="selectCitys"/> -->
+<!-- </resultMap> -->
+
+<!-- <select id="selectAllWithCitys" resultMap="withCitysResultMap"> -->
+<!-- 	select * -->
+<!-- 	  from country_language -->
+<!-- 	  order by country_language.country_code -->
+<!-- </select> -->
+
+<!-- <select id="selectPageWithCitys" resultMap="withCitysResultMap"> -->
+<!-- 	select * -->
+<!-- 	  from country -->
+<!-- 	 order by country_language.country_code -->
+<!-- </select> -->
+
+<!-- <select id="selectByLanguageWithCitys" resultMap="withCitysResultMap"> -->
+<!-- 	select *  -->
+<!-- 	  from country_language -->
+<!-- 	 where language = #{language} -->
+<!-- </select> -->
+</mapper>
