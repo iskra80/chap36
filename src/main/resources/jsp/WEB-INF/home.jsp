@@ -32,10 +32,10 @@
 	</sec:authorize>
 </ul>
 <hr>
-<ul>
-	<li><a href="/user/list">/user/list</a></li>
-</ul>
-<hr>
+<!-- <ul> -->
+<!-- 	<li><a href="/user/list">/user/list</a></li> -->
+<!-- </ul> -->
+<!-- <hr> -->
 <ul>
 	<li><a href="/dept/list">/dept/list</a></li>
 	<li><a href="/emp/list">/emp/list</a></li>
