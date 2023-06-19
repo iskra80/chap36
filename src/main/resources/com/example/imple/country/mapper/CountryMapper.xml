@@ -42,26 +42,26 @@
 	  from country
 	 where code = upper(#{code}) 
 </select>
+<insert id="insertCountry">
+	insert into country
+	values(
+		#{code,         jdbcType=VARCHAR},
+		#{name,         jdbcType=VARCHAR},
+		#{continent,    jdbcType=VARCHAR},  
+		#{region,       jdbcType=VARCHAR},  
+		#{surfaceArea                   }, 
+		#{indepYear                     },
+		#{population,    jdbcType=BIGINT},
+		#{lifeExpectancy                },
+		#{gnp            jdbcType=BIGINT},
+		#{gnpOld         jdbcType=BIGINT},
+		#{localName      jdbcType=VARCHAR},
+		#{governmentForm jdbcType=VARCHAR},
+		#{headOfState    jdbcType=VARCHAR},
+		#{capital        jdbcType=BIGINT},
+		#{code2          jdbcType=VARCHAR}
+	)
+</insert>
 
-<!-- <insert id="insertCountry"> -->
-<!-- 	insert into country -->
-<!-- 	values ( -->
-<!-- 		#{code,          jdbcType=VARCHAR}, -->
-<!-- 		#{name,          jdbcType=VARCHAR}, -->
-<!-- 		#{continent,     jdbcType=VARCHAR}, -->
-<!-- 		#{region,        jdbcType=VARCHAR}, -->
-<!-- 		#{surfaceArea                    }, -->
-<!-- 		#{indepYear                      }, -->
-<!-- 		#{population                     }, -->
-<!-- 		#{lifeExpectancy                 }, -->
-<!-- 		#{gnp                            }, -->
-<!-- 		#{localName      jdbcType=VARCHAR}, -->
-<!-- 		#{governmentForm jdbcType=VARCHAR}, -->
-<!-- 		#{headOfState    jdbcType=VARCHAR}, -->
-<!-- 		#{capital        jdbcType=VARCHAR}, -->
-<!-- 		#{code2                          }		 -->
-<!-- 	) -->
-	
-<!-- </insert> -->
 
 </mapper>

@@ -38,10 +38,15 @@ public class SecurityConfig {
 			request.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll(); //forward 허용
 			request.requestMatchers("/", "/error").permitAll(); //로그인 하지 않아도 home 화면은 접근을 허용한다.
 			request.requestMatchers("/webjars/**").permitAll(); //webjars 이하의 경로는 모두 허용
+			request.requestMatchers("/user/create").permitAll();
+			request.requestMatchers("/user/list").permitAll();
 			
 			request.requestMatchers("/dept/list", 	  "/dept/detail/{key}").permitAll();
 			request.requestMatchers("/emp/list", 	  "/emp/detail/{key}").permitAll();
 			request.requestMatchers("/salgrade/list", "/salgrade/detail/{key}").permitAll();
+			request.requestMatchers("/city/list",     "city/detail/{key}").permitAll();
+			request.requestMatchers("/country/list",  "country/detail/{key}").permitAll();
+			request.requestMatchers("/language/list", "language/detail/{key}").permitAll();
 			
 			request.requestMatchers("/user/list").hasAnyRole("ADMIN");
 			request.requestMatchers("/dept/create",
@@ -53,6 +58,9 @@ public class SecurityConfig {
 			request.requestMatchers("/salgrade/create",
 									"/salgrade/update",
 									"salgrade/delete").hasAnyRole("ADMIN");
+			request.requestMatchers("/city/create",
+									"/city/update",
+									"city/delete").hasAnyRole("ADMIN");
 			
 			request.anyRequest().authenticated(); //로그인 페이지를 제외하고는 모두 인증이 필요하다.
 			//request.anyRequest().permitAll();

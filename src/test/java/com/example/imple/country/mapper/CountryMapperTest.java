@@ -1,13 +1,16 @@
 package com.example.imple.country.mapper;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.example.imple.country.model.Country;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -114,7 +117,11 @@ public class CountryMapperTest {
 //	@Transactional
 //	void insertCountry() {
 //		var country = Country.builder()
-//							 .
+//							 .name("xxx").build();
+//		countryMapper.insertCountry(country);
+//		System.out.println(country);
+//		assertThat(country.getCode()).isNotNull();
+//		
 //	}
 	
 }

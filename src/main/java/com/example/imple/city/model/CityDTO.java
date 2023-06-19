@@ -3,7 +3,6 @@ package com.example.imple.city.model;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
-import com.example.imple.country.model.Country;
 import com.example.standard.model.Modelable;
 
 import jakarta.validation.constraints.NotBlank;
@@ -11,7 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 @Data
 @AllArgsConstructor(staticName = "of")

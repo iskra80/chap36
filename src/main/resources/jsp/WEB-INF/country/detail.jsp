@@ -20,6 +20,10 @@
 <body>
 <h1>Country Detail 나라 정보</h1>
 <hr>
+<%-- <sec:authorize access="isAuthenticated()"> --%>
+<%-- 	name = <sec:authentication property="name"/> --%>
+<%-- </sec:authorize> --%>
+<!-- <hr> -->
 <a href="/">Home</a>
 <hr>
 <c:choose>

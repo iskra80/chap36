@@ -11,9 +11,11 @@ import com.example.imple.language.mapper.LanguageMapper;
 import com.example.standard.controller.DetailController;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping("/language")
+@Slf4j
 public class LanguageDetailController implements DetailController<String> {
 	
 	@Autowired

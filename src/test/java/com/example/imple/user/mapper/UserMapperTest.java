@@ -2,6 +2,8 @@ package com.example.imple.user.mapper;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.IOException;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,9 +51,14 @@ public class UserMapperTest {
 		} catch (DataIntegrityViolationException e) {
 			System.out.println(e.getMessage());
 		}
-		
-		
-						
+				
+	}
+	
+	@Test
+	@Transactional
+	void update() {
+		int cnt = userMapper.update("oracle", "12346", "user");
+		assertThat(cnt).isEqualTo(1);
 		
 		
 //		try {

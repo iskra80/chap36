@@ -20,27 +20,10 @@
 <body>
 <h1>Country Page <span>pageNum = ${paging.pageNum}</span></h1>
 <hr>
-<a href="/">Home</a>
+<div id="home"><a href="/">Home</a></div>
 <hr>
 <section class="container table-responsive">
-	<ul class="list-group list-group-horizontal">
-		<li><a href="/country/page/${paging.navigateFirstPage-1}/${paging.pageSize}" class="list-group-item">Previous</a></li>
-	<c:forEach var="n" items="${paging.navigatepageNums}">
-		<c:choose>
-			<c:when test="${n eq paging.pageNum}">
-				<li class="list-group-item active"><a href="/country/page/${n}/${paging.pageSize}" class="text-danger">${n}</a></li>
-			</c:when>
-			<c:when test="${n ne paging.pageNum}">
-				<li class="list-group-item       "><a href="/country/page/${n}/${paging.pageSize}">${n}</a></li>
-			</c:when>
-		</c:choose>
-	</c:forEach>
-		<li><a href="/country/page/${paging.navigateLastPage+1}/${paging.pageSize}" class="list-group-item">Next</a></li>
-	</ul>
-	<hr>
-	
-	<hr>
-	
+<div>	
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
@@ -83,12 +66,49 @@
 		</c:forEach>
 		</tbody>
 	</table>
-	<hr>
-	<div>
-	<pre>
-	${json}
-	</pre>
-	</div>
+</div>
+<hr>
+<div>
+	<ul class="pagination justify-content-center">
+		<c:if test="${paging.hasPreviousPage }">
+			<li class="page-item"><a class="page-link" href="/city/page/1/${paging.pageSize}"><</a>
+		</c:if>
+		<c:choose>
+			<c:when test="${paging.hasPreviousPage}">
+				<li class="page-item"><a class="page-link" href="/city/page/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item disabled"><a class="page-link" href="#">Previous</a>
+			</c:otherwise>
+		</c:choose>
+			<c:forEach var="n" items="${paging.navigatepageNums}">
+				<c:choose>
+					<c:when test="${n eq paging.pageNum}">		
+						<li class="page-item"><a class="page-link" href="/city/page/${n}/${paging.pageSize}">${n}</a></li>
+					</c:when>
+					<c:when test="${n ne paging.pageNum}">		
+						<li class="page-item"><a class="page-link" href="/city/page/${n}/${paging.pageSize}">${n}</a></li>
+					</c:when>				
+				</c:choose>
+			</c:forEach>
+		<c:choose>
+			<c:when test="${paging.hasNextPage}">
+				<li class="page-item"><a class="page-link" href="/city/page/${paging.navigateLastPage+1}/${paging.pageSize}">Next</a>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item disabled"><a class="page-link" href="#">Next</a>
+			</c:otherwise>
+		</c:choose>
+		<c:if test="${paging.hasNextPage}">
+			<li class="page-item"><a class="page-link" href="/city/page/${paging.pages}/${paging.pageSize}">></a>
+		</c:if>
+	</ul>
+</div>
+<!-- 	<div> -->
+<!-- 	<pre> -->
+<%-- 	${json} --%>
+<!-- 	</pre> -->
+<!-- 	</div> -->
 </section>
 </body>
 </html>

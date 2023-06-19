@@ -1,16 +1,24 @@
 package com.example.imple.user.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.security.access.method.P;
+import org.apache.ibatis.annotations.Update;
 
 import com.example.imple.user.model.User;
+
+
 
 @Mapper
 public interface UserMapper {
 	
+	
+	@Select("select * from users")
+	List<User> selectAll();
+		
 	@Select("""
 			select *
 			  from users
@@ -36,4 +44,25 @@ public interface UserMapper {
 			)
 			""")
 	int insertUser(@Param("u") User user);
+	
+	
+	@Update("""
+			update users
+			   set password = #{password, jdbcType=VARCHAR},
+				   role     = #{role,     jdbcType=VARCHAR}
+		     where id = #{id}
+			""")
+
+	int update (@Param("id")       String id,
+			    @Param("password") String password,
+			    @Param("role")     String role);
+	
+	@Update("""
+			update users
+			  set password = #{password, jdbcType=VARCHAR},
+				   role    = #{role,     jdbcType=VARCHAR}
+			 where id = #{id}
+			""")
+	int updateUser(@Param("u") User user);
+	
 }
