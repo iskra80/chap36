@@ -55,12 +55,12 @@
 			<a href="/city/delete?id=${city.id}" class="btn btn-danger">삭제</a>
 		</menu>
 	</sec:authorize>
-	<hr>
-	<ul>
-		<li><a href="/city/create              ">/city/create</a></li>
-		<li><a href="/city/update?id=${city.id}">/city/update?id=${city.id}</a></li>
-		<li><a href="/city/delete?id=${city.id}">/city/delete?id=${city.id}</a></li>
-	</ul>
+<!-- 	<hr> -->
+<!-- 	<ul> -->
+<!-- 		<li><a href="/city/create              ">/city/create</a></li> -->
+<%-- 		<li><a href="/city/update?id=${city.id}">/city/update?id=${city.id}</a></li> --%>
+<%-- 		<li><a href="/city/delete?id=${city.id}">/city/delete?id=${city.id}</a></li> --%>
+<!-- 	</ul> -->
 </section>
 </body>
 </html>

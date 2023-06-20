@@ -2,6 +2,7 @@ package com.example.imple.user.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -50,19 +51,22 @@ public interface UserMapper {
 			update users
 			   set password = #{password, jdbcType=VARCHAR},
 				   role     = #{role,     jdbcType=VARCHAR}
-		     where id = #{id}
+		     where id       = ${id,       jdbcType=VARCHAR}
 			""")
 
-	int update (@Param("id")       String id,
-			    @Param("password") String password,
-			    @Param("role")     String role);
+	int updateByID (@Param("id")       String id,
+			        @Param("password") String password,
+			        @Param("role")     String role);
 	
 	@Update("""
 			update users
-			  set password = #{password, jdbcType=VARCHAR},
-				   role    = #{role,     jdbcType=VARCHAR}
-			 where id = #{id}
+			   set password = #{password, jdbcType=VARCHAR},
+				   role     = #{role,     jdbcType=VARCHAR}
+			 where id       = ${id,       jdbcType=VARCHAR}
 			""")
-	int updateUser(@Param("u") User user);
+	int updateUser(@Param("u") User users);
+	
+	@Delete("delete from users where id=#{id, jdbcType=VARCHAR}")
+	int deleteUser(String id);
 	
 }

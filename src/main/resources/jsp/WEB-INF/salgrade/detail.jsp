@@ -44,12 +44,12 @@
 			<a href="/salgrade/delete?grade=${salgrade.grade}" class="btn btn-danger">삭제</a>
 		</menu>
 	</sec:authorize>
-	<hr>
-	<ul>
-		<li><a href="/salgrade/create">/salgrade/create</a></li>
-		<li><a href="/salgrade/update?grade=${salgrade.grade}">/salgrade/update?grade=${salgrade.grade}</a></li>
-		<li><a href="/salgrade/delete?grade=${salgrade.grade}">/salgrade/delete?grade=${salgrade.grade}</a></li>
-	</ul>
+<!-- 	<hr> -->
+<!-- 	<ul> -->
+<!-- 		<li><a href="/salgrade/create">/salgrade/create</a></li> -->
+<%-- 		<li><a href="/salgrade/update?grade=${salgrade.grade}">/salgrade/update?grade=${salgrade.grade}</a></li> --%>
+<%-- 		<li><a href="/salgrade/delete?grade=${salgrade.grade}">/salgrade/delete?grade=${salgrade.grade}</a></li> --%>
+<!-- 	</ul> -->
 </section>
 
 </body>

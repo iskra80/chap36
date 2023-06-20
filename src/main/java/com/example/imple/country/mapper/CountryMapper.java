@@ -19,7 +19,7 @@ public interface CountryMapper {
 	Country 	  selectByCode(String code);
 	Country 	  selectByCodeWithCitys(String code);
 	
-//	int insertCountry(Country country);
+	int insertCountry(Country country);
 //	int updateCountry(Country country);
 //	int delete(String code);
 }

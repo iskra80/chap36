@@ -1,15 +1,16 @@
 package com.example.imple.user.mapper;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.io.IOException;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
@@ -57,8 +58,16 @@ public class UserMapperTest {
 	@Test
 	@Transactional
 	void update() {
-		int cnt = userMapper.update("oracle", "12346", "user");
+		int cnt = userMapper.updateByID("oracle", "12346", "user");
 		assertThat(cnt).isEqualTo(1);
+		
+		cnt= userMapper.updateByID("oracle10", "xxxxx", "yyy");
+		assertThat(cnt).isEqualTo(0);
+		
+		
+		
+		
+
 		
 		
 //		try {

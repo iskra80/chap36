@@ -19,7 +19,7 @@
 <body>
 <h1>City Page <span>pageNum = ${paging.pageNum}</span></h1>
 <hr>
-<div id="home"><a href="/">Home</a></div>
+<div id="home"><a href="/" class="btn btn-success">Home</a></div>
 <hr>
 <section class="container">	
 <div>

@@ -20,7 +20,7 @@
 <body>
 <h1>Country Page <span>pageNum = ${paging.pageNum}</span></h1>
 <hr>
-<div id="home"><a href="/">Home</a></div>
+<div id="home"><a href="/" class="btn btn-success">Home</a></div>
 <hr>
 <section class="container table-responsive">
 <div>	
@@ -71,11 +71,11 @@
 <div>
 	<ul class="pagination justify-content-center">
 		<c:if test="${paging.hasPreviousPage }">
-			<li class="page-item"><a class="page-link" href="/city/page/1/${paging.pageSize}"><</a>
+			<li class="page-item"><a class="page-link" href="/country/page/1/${paging.pageSize}"><</a>
 		</c:if>
 		<c:choose>
 			<c:when test="${paging.hasPreviousPage}">
-				<li class="page-item"><a class="page-link" href="/city/page/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a>
+				<li class="page-item"><a class="page-link" href="/country/page/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a>
 			</c:when>
 			<c:otherwise>
 				<li class="page-item disabled"><a class="page-link" href="#">Previous</a>
@@ -84,23 +84,23 @@
 			<c:forEach var="n" items="${paging.navigatepageNums}">
 				<c:choose>
 					<c:when test="${n eq paging.pageNum}">		
-						<li class="page-item"><a class="page-link" href="/city/page/${n}/${paging.pageSize}">${n}</a></li>
+						<li class="page-item"><a class="page-link" href="/country/page/${n}/${paging.pageSize}">${n}</a></li>
 					</c:when>
 					<c:when test="${n ne paging.pageNum}">		
-						<li class="page-item"><a class="page-link" href="/city/page/${n}/${paging.pageSize}">${n}</a></li>
+						<li class="page-item"><a class="page-link" href="/country/page/${n}/${paging.pageSize}">${n}</a></li>
 					</c:when>				
 				</c:choose>
 			</c:forEach>
 		<c:choose>
 			<c:when test="${paging.hasNextPage}">
-				<li class="page-item"><a class="page-link" href="/city/page/${paging.navigateLastPage+1}/${paging.pageSize}">Next</a>
+				<li class="page-item"><a class="page-link" href="/country/page/${paging.navigateLastPage+1}/${paging.pageSize}">Next</a>
 			</c:when>
 			<c:otherwise>
 				<li class="page-item disabled"><a class="page-link" href="#">Next</a>
 			</c:otherwise>
 		</c:choose>
 		<c:if test="${paging.hasNextPage}">
-			<li class="page-item"><a class="page-link" href="/city/page/${paging.pages}/${paging.pageSize}">></a>
+			<li class="page-item"><a class="page-link" href="/country/page/${paging.pages}/${paging.pageSize}">></a>
 		</c:if>
 	</ul>
 </div>

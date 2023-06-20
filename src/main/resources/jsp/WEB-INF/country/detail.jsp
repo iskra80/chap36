@@ -57,6 +57,20 @@
 				<tr><th>code2</th>             <td>${country.code2}</td></tr>             
 		</tbody>
 	</table>
+	<hr>
+	<sec:authorize access="hasRole('ADMIN')">
+		<menu class="btn-group">
+			<a href="/country/create" class="btn btn-primary">추가</a>
+			<a href="/country/update?id=${country.code}" class="btn btn-secondary">수정</a>
+			<a href="/country/delete?id=${country.code}" class="btn btn-danger">삭제</a>
+		</menu>
+	</sec:authorize>
+<!-- 	<hr> -->
+<!-- 	<ul> -->
+<!-- 		<li><a href="/country/create              ">/country/create</a></li> -->
+<%-- 		<li><a href="/country/update?id=${country.code}">/country/update?id=${country.code}</a></li> --%>
+<%-- 		<li><a href="/country/delete?id=${country.code}">/country/delete?id=${country.code}</a></li> --%>
+<!-- 	</ul> -->
 </section>
 </body>
 </html>

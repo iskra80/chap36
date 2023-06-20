@@ -21,6 +21,7 @@ public interface LanguageMapper {
 	List<Language> selectByLanguage(String language);
 	List<Language> selectByLanguageWithCountry(String language);
 	List<Language> selectByCountryCode(String countryCode);
+	List<Language> selectByCountryCodewithCountry(String ContryCode);
 		
 //	City           slelctCitys();
 //	List<Language> selectAllWithCitys();

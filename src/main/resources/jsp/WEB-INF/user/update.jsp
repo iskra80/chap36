@@ -15,32 +15,31 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
 
-<title>create.jsp</title>
+<title>update.jsp</title>
 </head>
 <body>
-<h1>User Create 사용자 추가</h1>
+<h1>User Update 사용자 수정</h1>
 <hr>
-<a href="/" class="btn btn-success">Home</a>
+<a href="/">Home</a>
+<hr>
+<a href="/user/list">/user/list</a>
 <hr>
 <section class="container">
-	<form action="/user/create" method="post">
+	<form action="/user/update" method="post">
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="id">User ID<span>*</span></label>
-			<input class="form-control"    id="id" name="id" placeholder="사용할 id를 입력하세요." value="${user.id}"/>
+			<label class="form-lable mb-2" for="id">id<span>*</span></label>
+			<input class="form-control"    id="id" name="id" value="${user.id}" disabled="disabled"/>
+			<input class="form-control"    id="id" name="id" value="${user.id}" type="hidden"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="password">Password<span>*</span></label>
-			<input class="form-control"    id="password"  name="password"  placeholder="password를 입력하세요." value="${user.password}"/>
+			<label class="form-lable mb-2" for="password">password<span>*</span></label>
+			<input class="form-control"    id="password"       name="password"     placeholder="password를 입력하세요." value="${user.password}"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="role">Role</label>			
-			<input class="form-control" list="role"   id="role"	   name="role"  value="${user.role}"/>
-			<datalist id="role">
-				<option value="USER">
-				<option value="ADMIN">
-			</datalist>
+			<label class="form-lable mb-2" for="role">role</label>
+			<input class="form-control"    id="role"	name="role" placeholder="회원등급을 입력하세요." value="${user.role}"/>
 		</div>
-		<button type="submit" class="btn btn-secondary">Submit</button>
+		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>	
 </section>
 <hr>

@@ -24,7 +24,7 @@
 	name = <sec:authentication property="name"/>
 </sec:authorize>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
 <section class="container">
 	<table class="table table-striped table-bordered table-hover">

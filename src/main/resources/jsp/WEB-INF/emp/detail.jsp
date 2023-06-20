@@ -50,12 +50,12 @@
 			<a href="/emp/delete?empno=${emp.empno}" class="btn btn-danger">삭제</a>
 		</menu>
 	</sec:authorize>
-	<hr>
-	<ul>
-		<li><a href="/emp/create">/emp/create</a></li>
-		<li><a href="/emp/update?empno=${emp.empno}">/emp/update?empno=${emp.empno}</a></li>
-		<li><a href="/emp/delete?empno=${emp.empno}">/emp/delete?empno=${emp.empno}</a></li>
-	</ul>
+<!-- 	<hr> -->
+<!-- 	<ul> -->
+<!-- 		<li><a href="/emp/create">/emp/create</a></li> -->
+<%-- 		<li><a href="/emp/update?empno=${emp.empno}">/emp/update?empno=${emp.empno}</a></li> --%>
+<%-- 		<li><a href="/emp/delete?empno=${emp.empno}">/emp/delete?empno=${emp.empno}</a></li> --%>
+<!-- 	</ul> -->
 </section>
 
 </body>

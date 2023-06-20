@@ -40,8 +40,8 @@
 	<sec:authorize access="hasRole('ADMIN')">
 		<menu class="btn-group">
 			<a href="/user/create" class="btn btn-primary">추가</a>
-			<a href="/user/update?grade=${user.id}" class="btn btn-secondary">수정</a>
-			<a href="/user/delete?grade=${user.id}" class="btn btn-danger">삭제</a>
+			<a href="/user/update?id=${user.id}" class="btn btn-secondary">수정</a>
+			<a href="/user/delete?id=${user.id}" class="btn btn-danger">삭제</a>
 		</menu>
 	</sec:authorize>
 	<hr>

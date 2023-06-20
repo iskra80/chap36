@@ -39,7 +39,8 @@ public class SecurityConfig {
 			request.requestMatchers("/", "/error").permitAll(); //로그인 하지 않아도 home 화면은 접근을 허용한다.
 			request.requestMatchers("/webjars/**").permitAll(); //webjars 이하의 경로는 모두 허용
 			request.requestMatchers("/user/create").permitAll();
-			request.requestMatchers("/user/list").permitAll();
+			request.requestMatchers("/img/**").permitAll();
+			request.requestMatchers("/user/list", "/user/detail/{key}").permitAll();
 			
 			request.requestMatchers("/dept/list", 	  "/dept/detail/{key}").permitAll();
 			request.requestMatchers("/emp/list", 	  "/emp/detail/{key}").permitAll();
@@ -48,7 +49,7 @@ public class SecurityConfig {
 			request.requestMatchers("/country/list",  "country/detail/{key}").permitAll();
 			request.requestMatchers("/language/list", "language/detail/{key}").permitAll();
 			
-			request.requestMatchers("/user/list").hasAnyRole("ADMIN");
+			//request.requestMatchers("/user/list").hasAnyRole("ADMIN");
 			request.requestMatchers("/dept/create",
 									"/dept/update",
 									"dept/delete").hasAnyRole("ADMIN");
@@ -69,6 +70,7 @@ public class SecurityConfig {
 		//로그인 방식 설정
 		http.formLogin(login -> { 
 			login.loginPage("/user/login"); //로그인 url 설정
+			login.loginProcessingUrl("/user/login");
 			login.defaultSuccessUrl("/", true); //로그인 성공하면 항상 home으로 가도록
 			login.failureHandler((request, response, e) -> { //로그인 실패 시 처리. e가 실패했을 때 에러정보
 				request.setAttribute("exception", e);
