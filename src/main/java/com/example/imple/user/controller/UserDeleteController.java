@@ -39,7 +39,6 @@ public class UserDeleteController implements DeleteController<UserDTO> {
 		
 		var id = request.getParameter("id");
 		if (Objects.nonNull(id)) {
-	//		var key = Integer.parseInt(id);
 			var user = mapper.selectById(id);
 			model.addAttribute("user", user);
 		}
@@ -53,11 +52,18 @@ public class UserDeleteController implements DeleteController<UserDTO> {
 		session.setAttribute("user", dto);
 		session.setAttribute("binding", binding);
 		
-		var user = dto.getModel();
 		
 		if(binding.hasErrors())
 			return "redirect:/user/delete?error";
 		
+		var user = dto.getModel();
+		
+		try {
+			mapper.deleteUser(user.getId());
+		} catch (DataIntegrityViolationException e) {
+			binding.reject("foreign", "입력하신 id는 없습니다.");
+			return "redirect:/user/delete?error";
+		}
 		return "redirect:/user/success?delete";
 	}
 

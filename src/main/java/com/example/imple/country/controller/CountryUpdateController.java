@@ -1,4 +1,4 @@
-package com.example.imple.user.controller;
+package com.example.imple.country.controller;
 
 import java.util.Objects;
 
@@ -12,8 +12,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.imple.city.mapper.CityMapper;
 import com.example.imple.city.model.CityDTO;
-import com.example.imple.user.mapper.UserMapper;
-import com.example.imple.user.model.UserDTO;
+import com.example.imple.country.mapper.CountryMapper;
+import com.example.imple.country.model.CountryDTO;
 import com.example.standard.controller.CreateController;
 import com.example.standard.controller.UpdateController;
 
@@ -22,50 +22,61 @@ import jakarta.validation.Valid;
 import oracle.net.aso.m;
 
 @Controller
-@RequestMapping("/user")
-public class UserUpdateController implements UpdateController<UserDTO> {
+@RequestMapping("/country")
+public class CountryUpdateController implements UpdateController<CountryDTO> {
 	
 	@Autowired
-	UserMapper mapper;
+	CountryMapper mapper;
 		
 	@Override
 	public void update(Model model, HttpServletRequest request) {
 		var error = request.getParameter("error");
 		if(Objects.isNull(error)) {
 			var session = request.getSession();
-			session.removeAttribute("user");
-			session.removeAttribute("binding");		
-		}
-		
+			session.removeAttribute("country");
+			session.removeAttribute("binding");
+			
+			}
 		var id = request.getParameter("id");
 		if(Objects.nonNull(id)) {
-			var user= mapper.selectById(id);
-			model.addAttribute("user", user);
+			var key = Integer.parseInt(id);
+			var city= mapper.selectById(key);
+			model.addAttribute("city", city);
 		}
+		
+
 	}
 
 	@Override
-	public String update(@Valid UserDTO dto, BindingResult binding, Model model, HttpServletRequest request,
+	public String update(@Valid CityDTO dto, BindingResult binding, Model model, HttpServletRequest request,
 			RedirectAttributes attr) {
 		
 		var session = request.getSession();
-		session.setAttribute("user", dto);
+		session.setAttribute("city", dto);
 		session.setAttribute("binding", binding);
-				
-		if(binding.hasErrors()) {		
-			return "redirect:/user/update?error";
+		
+		var countryCode = dto.getCountryCode().trim();
+		
+		if(!countryCode.equals(""))
+			if(countryCode.length() !=3) {
+				binding.rejectValue("countryCode","9999", "3자리로 입력하세요");
+			}
+		
+		if(binding.hasErrors()) {
+			
+			return "redirect:/city/update?error";
 		}
 		
-		var user =  dto.getModel();
+		var city =  dto.getModel();
 		
 		try {
-			mapper.updateUser(user);
+			mapper.updateCity(city);			
 		} catch (DataIntegrityViolationException e) {
-			binding.rejectValue("id","9999", "입력한 id는 없습니다.");
-			return "redirect:/user/update?error";
+			binding.reject("foreign","입력한 국가코드는 없습니다.");
+			return "redirect:/city/update?error";
 		}
 				
-		return "redirect:/user/success?update";
+		return "redirect:/city/success?update";
 	}
 
 	

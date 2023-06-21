@@ -20,6 +20,6 @@ public interface CountryMapper {
 	Country 	  selectByCodeWithCitys(String code);
 	
 	int insertCountry(Country country);
-//	int updateCountry(Country country);
+	int updateCountry(Country country);
 //	int delete(String code);
 }

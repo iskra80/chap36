@@ -14,6 +14,11 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 
 <title>list.jsp</title>
 </head>
@@ -21,14 +26,14 @@
 <h1>Emp List</h1>
 <hr>
 <sec:authorize access="isAuthenticated()">
-	name = <sec:authentication property="name"/>
+	<sec:authentication property="name"/>님!
 </sec:authorize>
 <hr>
 <a href="/" class="btn btn-success">Home</a>
 <hr>
 <section class="container">
 	<table class="table table-striped table-bordered table-hover">
-		<thead>
+		<thead class="table-dark">
 			<tr>
 				<th>empno</th>
 				<th>ename</th>

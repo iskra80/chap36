@@ -14,6 +14,11 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 
 <title>detail.jsp</title>
 </head>
@@ -21,10 +26,10 @@
 <h1>Dept Detail 부서 정보</h1>
 <hr>
 <sec:authorize access="isAuthenticated()">
-	name = <sec:authentication property="name"/>
+	<sec:authentication property="name"/>님 !<br>
 </sec:authorize>
 <hr>
-<a href="/">Home</a>
+<div id="home"><a href="/" class="btn btn-success">Home</a></div>
 <hr>
 <a href="/dept/list">/dept/list</a>
 <hr>

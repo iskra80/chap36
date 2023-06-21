@@ -80,7 +80,7 @@ public interface DeptMapper {
 			update dept
 			   set dname = #{dname, jdbcType=VARCHAR},
 			       loc   = #{loc,   jdbcType=VARCHAR}
-			 where deptno= ${deptno}     
+			 where deptno= #{deptno}     
 			""")
 	int update(@Param("deptno") int deptno, 
 			   @Param("dname")  String dname, 
@@ -90,7 +90,7 @@ public interface DeptMapper {
 			update dept
 			   set dname = #{d.dname, jdbcType=VARCHAR},
 			       loc   = #{d.loc,   jdbcType=VARCHAR}
-			 where deptno= ${d.deptno}     
+			 where deptno= #{d.deptno}     
 			""")
 	int updateDept(@Param("d") Dept dept);
 	

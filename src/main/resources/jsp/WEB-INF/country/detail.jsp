@@ -14,17 +14,22 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 
 <title>detail.jsp</title>
 </head>
 <body>
 <h1>Country Detail 나라 정보</h1>
 <hr>
-<%-- <sec:authorize access="isAuthenticated()"> --%>
-<%-- 	name = <sec:authentication property="name"/> --%>
-<%-- </sec:authorize> --%>
-<!-- <hr> -->
-<a href="/">Home</a>
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="name"/>님 !<br>
+</sec:authorize>
+<hr>
+<div id="home"><a href="/" class="btn btn-success">Home</a></div>
 <hr>
 <c:choose>
 	<c:when test="${empty param.pageNum}">

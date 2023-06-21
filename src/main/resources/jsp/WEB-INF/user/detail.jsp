@@ -14,6 +14,11 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 
 <title>detail.jsp</title>
 </head>
@@ -24,7 +29,7 @@
 	name = <sec:authentication property="name"/>
 </sec:authorize>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
 <a href="/user/list">/user/list</a>
 <hr>
@@ -44,12 +49,12 @@
 			<a href="/user/delete?id=${user.id}" class="btn btn-danger">삭제</a>
 		</menu>
 	</sec:authorize>
-	<hr>
-	<ul>
-		<li><a href="/user/create">/user/create</a></li>
-		<li><a href="/user/update?id=${user.id}">/user/update?id=${user.id}</a></li>
-		<li><a href="/user/delete?id=${user.id}">/user/delete?id=${user.id}</a></li>
-	</ul>
+<!-- 	<hr> -->
+<!-- 	<ul> -->
+<!-- 		<li><a href="/user/create">/user/create</a></li> -->
+<%-- 		<li><a href="/user/update?id=${user.id}">/user/update?id=${user.id}</a></li> --%>
+<%-- 		<li><a href="/user/delete?id=${user.id}">/user/delete?id=${user.id}</a></li> --%>
+<!-- 	</ul> -->
 </section>
 
 </body>

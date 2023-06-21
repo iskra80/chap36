@@ -14,24 +14,34 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src=/webjars/bootstrap/js/bootstrap.min.js></script>
 <script src=/webjars/jquery/jquery.min.js></script>
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 
 <title>login.jsp</title>
 </head>
 <body>
 <h1>Login 로그인</h1>
 <hr>
-<a href="/">HOME</a>
+
 <section class="container">
 	<form action="/user/login" method="post">
-		<input class="form-control" name="username" value="${param.username}"/>
-		<hr>
-		<input class="form-control" name="password" type="password" value="${param.password}"/>
-		<hr>
+		<div class="mb-3">
+            <label class="form-lable mb-2" for="username">User ID<span>*</span></label>
+            <input class="form-control"    id="username" name="username"  placeholder="username" value="${param.username}"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-lable mb-2" for="password">Password<span>*</span></label>
+            <input class="form-control"    id="password"  name="password"  placeholder="password" value="${param.password}" type="password"/>
+        </div>
 		<input name="remember-me" type="checkbox">Remember me
-		<hr>
-<!-- 		<input class="btn btn-secondary" id="register" type="submit" value="회원가입"> -->
-<!-- 		<hr> -->
-		<input class="btn btn-primary" type="submit"/>		
+		<br>
+		<br>
+		<button type="submit" class="btn btn-secondary">Submit</button>
+		<a href="/user/create" class="btn btn-dark">Register</a>
+		<a href="/" class="btn btn-success">Home</a>		
 	</form>
 </section>
 <c:if test="${exception ne null}">

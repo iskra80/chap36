@@ -62,6 +62,26 @@
 		#{code2          jdbcType=VARCHAR}
 	)
 </insert>
+<!-- <update id="updateCountry"> -->
+<!-- 	update country -->
+<!-- 	   set code           = #{code,         jdbcType=VARCHAR}, -->
+<!-- 	       name           = #{name,         jdbcType=VARCHAR}, -->
+<!-- 	       continent      = #{continent,    jdbcType=VARCHAR}, -->
+<!-- 	       region         = #{region,       jdbcType=VARCHAR}, -->
+<!-- 	       surfaceArea    = #{surfaceArea                   },  -->
+<!-- 	       indepYear      = #{indepYear                     }, -->
+<!-- 	       population     = #{population,    jdbcType=BIGINT}, -->
+<!-- 	       lifeExpectancy = #{lifeExpectancy                }, -->
+<!-- 	       gnp            = #{gnp            jdbcType=BIGINT}, -->
+<!-- 		   gnpOld         = #{gnpOld         jdbcType=BIGINT}, -->
+<!-- 		   localName      = #{localName      jdbcType=VARCHAR}, -->
+<!-- 		   governmentForm = #{governmentForm jdbcType=VARCHAR}, -->
+<!-- 		   headOfState = #{headOfState    jdbcType=VARCHAR}, -->
+<!-- 		   capital = #{capital        jdbcType=BIGINT}, -->
+<!-- 		   code2 = #{code2          jdbcType=VARCHAR} -->
+	       
+
+<!-- </update> -->
 
 
 </mapper>

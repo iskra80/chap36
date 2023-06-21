@@ -51,7 +51,7 @@ public interface UserMapper {
 			update users
 			   set password = #{password, jdbcType=VARCHAR},
 				   role     = #{role,     jdbcType=VARCHAR}
-		     where id       = ${id,       jdbcType=VARCHAR}
+		     where id       = #{id}
 			""")
 
 	int updateByID (@Param("id")       String id,
@@ -60,13 +60,13 @@ public interface UserMapper {
 	
 	@Update("""
 			update users
-			   set password = #{password, jdbcType=VARCHAR},
-				   role     = #{role,     jdbcType=VARCHAR}
-			 where id       = ${id,       jdbcType=VARCHAR}
+			   set password = #{u.password, jdbcType=VARCHAR},
+				   role     = #{u.role,     jdbcType=VARCHAR}
+			 where id       = #{u.id}
 			""")
-	int updateUser(@Param("u") User users);
+	int updateUser(@Param("u") User user);
 	
-	@Delete("delete from users where id=#{id, jdbcType=VARCHAR}")
+	@Delete("delete from users where id=#{id}")
 	int deleteUser(String id);
 	
 }

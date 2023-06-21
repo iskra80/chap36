@@ -14,6 +14,12 @@
 <script src=/webjars/bootstrap/js/bootstrap.min.js></script>
 <script src=/webjars/jquery/jquery.min.js></script>
 <style type="text/css">
+#steve{
+	text-align: center;
+}
+#bill {
+	text-align: center;
+}
 #head {
 	margin:0px;
 	padding:0px;
@@ -23,10 +29,10 @@
 body{
 	margin: 10px;
 }
-div{
-	border: 1px solid lightgrey;
-	padding: 20px;
-}
+/* div{ */
+/* 	border: 1px solid lightgrey; */
+/* 	padding: 20px; */
+/* } */
 section{
 	margin: 10px;
 	text-align: center;
@@ -36,7 +42,7 @@ section{
 	text-align: center;
 }
 #user{
-	text-align: left;
+	text-align: right;
 }
 #login {
 	text-align: right;
@@ -50,37 +56,30 @@ section{
 	<img alt="homeback" src="/img/homeback.jpg">
 </div>
 <!-- 		<h1>Home Page</h1> -->
+<br>
 
 <section id="login">
 	<sec:authorize access="isAuthenticated()">
-		<h5>name = <sec:authentication property="name"/></h5>
-		<sec:authorize access="isAnonymous()">
-			<a href="/user/login " class="btn btn-secondary">User login </a>
-		</sec:authorize>
-		
-		<sec:authorize access="isAuthenticated()">
-			<a href="/user/logout" class="btn btn-secondary">User logout</a>
-		</sec:authorize>
+		<h5>Welcome <sec:authentication property="name"/>!</h5>
 	</sec:authorize>
 </section>
-<!-- <ul> -->
-<%-- 	<sec:authorize access="isAnonymous()"> --%>
-<!-- 		<li><a href="/user/login ">/user/login </a></li> -->
-<%-- 	</sec:authorize> --%>
+<section>
+	<sec:authorize access="isAnonymous()">
+		<a href="/user/login" class="btn btn-dark">User Login </a>
+	</sec:authorize>
 	
-<%-- 	<sec:authorize access="isAuthenticated()"> --%>
-<!-- 		<li><a href="/user/logout">/user/logout</a></li> -->
-<%-- 	</sec:authorize> --%>
-<!-- </ul> -->
-<!-- <hr> -->
-<!-- <ul> -->
-<!-- 	<li><a href="/user/list">/user/list</a></li> -->
-<!-- 	<li><a href="/user/create">User Create</a></li> -->
-<!-- 	<li><a href="/user/update">/user/update</a></li> -->
-<!-- </ul> -->
-
+	<sec:authorize access="isAuthenticated()">
+		<a href="/user/logout" class="btn btn-dark">User Logout</a>
+	</sec:authorize>
+	<sec:authorize access="hasRole('ADMIN')">
+	<a href="/user/list" class="btn btn-secondary">/user/list</a>	
+<!-- 	<a href="/user/update">/user/update</a> -->
+	</sec:authorize>	
+	<a href="/user/create" class="btn btn-dark">User Create</a>
+</section>
+<hr>
 <div class="row">
-	<div class="col">
+	<div  id="steve" class="col">
 		<h1>Employee</h1>
 		<h5>Steve Jobs is an architect and engineer</h5>
 		<section>
@@ -119,14 +118,14 @@ section{
 <!-- 				<li><a href="/salgrade/delete?grade=1 ">/salgrade/delete?grade=1</a></li> -->
 <!-- 			</ul> -->
 		
-	<div class="col">
+	<div id="bill" class="col">
 		<h1>World</h1>
 		<h5>Bill Gates is an architect and engineer</h5>
 		<section>
 			<menu class="btn-group, container-fluid">
 				<a href="/city/page/1/10" class="btn btn-success">City List</a>
-				<a href="/country/page/1/5" class="btn btn-secondary">Country</a>
-				<a href="/language/page/1/10" class="btn btn-success">Language</a>
+				<a href="/country/page/1/5" class="btn btn-secondary">Country List</a>
+				<a href="/language/page/1/10" class="btn btn-success">Language List</a>
 			</menu>
 		</section>
 		<section id="img">
@@ -146,10 +145,6 @@ section{
 		
 	</div>
 </div>
-<section id="user">
-	<a href="/user/list">/user/list</a><br>
-	<a href="/user/create" class="btn btn-secondary">User Create</a><br>
-	<a href="/user/update">/user/update</a>
-</section>>
+</section>
 </body>
 </html>

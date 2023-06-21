@@ -60,8 +60,8 @@ public class SalgradeDeleteController implements DeleteController<SalgradeDTO> {
 		
 		try {
 			mapper.delete(salgrade.getGrade());
-		} catch (DuplicateKeyException e) {
-			binding.reject("foreign", "입력하null");
+		} catch (DataIntegrityViolationException e) {
+			binding.reject("foreign", "입력하신 grade는 없습니다");
 			return "redirect:/salgrade/delete?error";
 		} 
 		
