@@ -46,7 +46,7 @@ body{
 		<c:forEach var="e" items="${list}">
 			<tr>
 				<td>${e.countryCode}</td>
-				<td><a href="/language/detail/${e.countryCode}?pageNum=${paging.pageNum}&pageSize=${paging.pageSize}">${e.language}</a></td>
+				<td>${e.language}</td>
 				<td>${e.isOfficial}</td>
 				<td align="right">
 					<fmt:formatNumber pattern="##.##" value="${e.percentage}"/> 
@@ -54,17 +54,29 @@ body{
 			</tr>
 		</c:forEach>
 		</tbody>
+<!-- 		<tbody> -->
+<%-- 		<c:forEach var="e" items="${list}"> --%>
+<!-- 			<tr> -->
+<%-- 				<td>${e.countryCode}</td> --%>
+<%-- 				<td><a href="/language/detail/${e.countryCode}?pageNum=${paging.pageNum}&pageSize=${paging.pageSize}">${e.language}</a></td> --%>
+<%-- 				<td>${e.isOfficial}</td> --%>
+<!-- 				<td align="right"> -->
+<%-- 					<fmt:formatNumber pattern="##.##" value="${e.percentage}"/>  --%>
+<!-- 				</td> -->
+<!-- 			</tr> -->
+<%-- 		</c:forEach> --%>
+<!-- 		</tbody> -->
 	</table>
 </div>	
 <hr>
 <div>
 	<ul class="pagination justify-content-center">
 		<c:if test="${paging.hasPreviousPage }">
-			<li class="page-item"><a class="page-link" href="/city/page/1/${paging.pageSize}"><</a>
+			<li class="page-item"><a class="page-link" href="/language/page/1/${paging.pageSize}"><</a>
 		</c:if>
 		<c:choose>
 			<c:when test="${paging.hasPreviousPage}">
-				<li class="page-item"><a class="page-link" href="/city/page/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a>
+				<li class="page-item"><a class="page-link" href="/language/page/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a>
 			</c:when>
 			<c:otherwise>
 				<li class="page-item disabled"><a class="page-link" href="#">Previous</a>
@@ -73,23 +85,23 @@ body{
 			<c:forEach var="n" items="${paging.navigatepageNums}">
 				<c:choose>
 					<c:when test="${n eq paging.pageNum}">		
-						<li class="page-item"><a class="page-link" href="/city/page/${n}/${paging.pageSize}">${n}</a></li>
+						<li class="page-item"><a class="page-link" href="/language/page/${n}/${paging.pageSize}">${n}</a></li>
 					</c:when>
 					<c:when test="${n ne paging.pageNum}">		
-						<li class="page-item"><a class="page-link" href="/city/page/${n}/${paging.pageSize}">${n}</a></li>
+						<li class="page-item"><a class="page-link" href="/language/page/${n}/${paging.pageSize}">${n}</a></li>
 					</c:when>				
 				</c:choose>
 			</c:forEach>
 		<c:choose>
 			<c:when test="${paging.hasNextPage}">
-				<li class="page-item"><a class="page-link" href="/city/page/${paging.navigateLastPage+1}/${paging.pageSize}">Next</a>
+				<li class="page-item"><a class="page-link" href="/language/page/${paging.navigateLastPage+1}/${paging.pageSize}">Next</a>
 			</c:when>
 			<c:otherwise>
 				<li class="page-item disabled"><a class="page-link" href="#">Next</a>
 			</c:otherwise>
 		</c:choose>
 		<c:if test="${paging.hasNextPage}">
-			<li class="page-item"><a class="page-link" href="/city/page/${paging.pages}/${paging.pageSize}">></a>
+			<li class="page-item"><a class="page-link" href="/language/page/${paging.pages}/${paging.pageSize}">></a>
 		</c:if>
 	</ul>
 </div>

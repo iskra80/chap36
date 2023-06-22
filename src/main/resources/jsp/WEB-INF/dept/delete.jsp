@@ -20,9 +20,9 @@
 <body>
 <h1>Dept Delete 부서 삭제</h1>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
-<a href="/dept/list">/dept/list</a>
+<a href="/dept/list">Dept List</a>
 <hr>
 <section class="container">
 	<form action="/dept/delete" method="post">
@@ -41,7 +41,7 @@
 			<input class="form-control"    id="loc"	   name="loc"    placeholder="부서위치를 입력하세요." value="${dept.loc}" disabled="disabled"/>
 			<input class="form-control"    id="loc"	   name="loc"    placeholder="부서위치를 입력하세요." value="${dept.loc}" type="hidden"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-dark">Submit</button>
 	</form>	
 </section>
 <hr>

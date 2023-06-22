@@ -14,15 +14,20 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 
 <title>success.jsp</title>
 </head>
 <body>
 <h1>Dept Successful 성공</h1>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
-<a href="/dept/list">/dept/list</a>
+<a href="/dept/list">Dept List</a>
 <hr>
 <br>
 <br>

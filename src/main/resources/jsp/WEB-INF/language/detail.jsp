@@ -14,13 +14,17 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 <title>detail.jsp</title>
 </head>
 <body>
 <h1>Language Detail 언어 정보</h1>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
 <c:choose>
 	<c:when test="${empty param.pageNum}">

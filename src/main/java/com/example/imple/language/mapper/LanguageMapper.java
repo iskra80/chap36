@@ -20,7 +20,7 @@ public interface LanguageMapper {
 	Page<Language> selectPageWithCountry();	
 	List<Language> selectByLanguage(String language);
 	List<Language> selectByLanguageWithCountry(String language);
-	List<Language> selectByCountryCode(String countryCode);
+	Language       selectByCountryCode(String code);
 	List<Language> selectByCountryCodewithCountry(String ContryCode);
 		
 //	City           slelctCitys();

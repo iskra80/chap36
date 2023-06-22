@@ -14,15 +14,19 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 <title>create.jsp</title>
 </head>
 <body>
 <h1>Dept Create 부서 추가</h1>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
-<a href="/dept/list">/dept/list</a>
+<a href="/dept/list">Dept List</a>
 <hr>
 <section class="container">
 	<form action="/dept/create" method="post">
@@ -38,7 +42,7 @@
 			<label class="form-lable mb-2" for="loc">loc</label>
 			<input class="form-control"    id="loc"	   name="loc"    placeholder="부서위치를 입력하세요." value="${dept.loc}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-dark">Submit</button>
 	</form>	
 </section>
 <hr>

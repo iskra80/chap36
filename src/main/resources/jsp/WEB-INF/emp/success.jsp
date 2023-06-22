@@ -20,9 +20,9 @@
 <body>
 <h1>Emp Successful 성공</h1>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
-<a href="/emp/list">/emp/list</a>
+<a href="/emp/list">EMP List</a>
 <hr>
 <br>
 <br>

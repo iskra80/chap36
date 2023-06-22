@@ -66,8 +66,8 @@ body{
 	<sec:authorize access="hasRole('ADMIN')">
 		<menu class="btn-group">
 			<a href="/country/create" class="btn btn-primary">추가</a>
-			<a href="/country/update?id=${country.code}" class="btn btn-secondary">수정</a>
-			<a href="/country/delete?id=${country.code}" class="btn btn-danger">삭제</a>
+			<a href="/country/update?code=${country.code}" class="btn btn-secondary">수정</a>
+			<a href="/country/delete?code=${country.code}" class="btn btn-danger">삭제</a>
 		</menu>
 	</sec:authorize>
 <!-- 	<hr> -->

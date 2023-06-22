@@ -14,7 +14,11 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 <title>create.jsp</title>
 </head>
 <body>

@@ -31,7 +31,7 @@ body{
 <hr>
 <div id="home"><a href="/" class="btn btn-success">Home</a></div>
 <hr>
-<a href="/dept/list">/dept/list</a>
+<a href="/dept/list">Dept List</a>
 <hr>
 <section class="container">
 	<table class="table">

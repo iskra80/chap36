@@ -19,40 +19,41 @@ body{
 	margin: 10px;
 }
 </style>
-<title>create.jsp</title>
+<title>delete.jsp</title>
 </head>
 <body>
-<h1>Country Create 나라 추가</h1>
+<h1>Country Delete 나라 삭제</h1>
 <hr>
 <a href="/" class="btn btn-success">Home</a>
 <hr>
 <a href="/country/list">/country/list</a>
 <hr>
 <section class="container">
-	<form action="/country/create" method="post">
+	<form action="/country/update" method="post">
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="code">code<span>*</span></label>
-			<input class="form-control"    id="code"       name="code"         placeholder="나라코드를 입력하세요." value="${country.code}"/>
+			<input class="form-control"    id="code"       name="code"        value="${country.code}" disabled="disabled"/>
+			<input class="form-control"    id="code"       name="code"        value="${country.code}" type="hidden"/>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="name">name<span>*</span></label>
-			<input class="form-control"    id="name"       name="name"         placeholder="나라이름를 입력하세요." value="${country.name}"/>
+			<input class="form-control"    id="name"       name="name"     placeholder="나라이름을 입력하세요." value="${country.name}"/>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="continent">continent</label>
-			<input class="form-control"    id="continent"	name="continent" placeholder="해당대륙을 입력하세요." value="${country.continent}"/>
+			<input class="form-control"    id="continent"	name="continent" placeholder="대륙을 입력하세요." value="${country.continent}"/>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="region">region</label>
-			<input class="form-control"    id="region"	   name="region"    placeholder="속해있는 지역을 입력하세요." value="${country.region}"/>
+			<input class="form-control"    id="region"	   name="region"    placeholder="지역을 입력하세요." value="${country.region}"/>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="surfaceArea">surfaceArea</label>
-			<input class="form-control"    id="surfaceArea"	   name="surfaceArea"    placeholder="표면적를 입력하세요." value="${country.surfaceArea}"/>
+			<input class="form-control"    id="surfaceArea"	   name="surfaceArea"    placeholder="표면적 입력하세요." value="${country.surfaceArea}"/>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="indepYear">indepYear</label>
-			<input class="form-control"    id="indepYear"	   name="indepYear"    placeholder="독립일를 입력하세요." value="${country.indepYear}"/>
+			<input class="form-control"    id="indepYear"	   name="indepYear"    placeholder="독립일 입력하세요." value="${country.indepYear}"/>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="population">population</label>
@@ -60,7 +61,7 @@ body{
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="lifeExpectancy">lifeExpectancy</label>
-			<input class="form-control"    id="lifeExpectancy"	   name="lifeExpectancy"    placeholder="평균수명를 입력하세요." value="${country.lifeExpectancy}"/>
+			<input class="form-control"    id="lifeExpectancy"	   name="lifeExpectancy"    placeholder="기대수명을 입력하세요." value="${country.lifeExpectancy}"/>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="gnp">gnp</label>
@@ -72,22 +73,19 @@ body{
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="localName">localName</label>
-			<input class="form-control"    id="localName"	   name="localName"    placeholder="localName를 입력하세요." value="${country.localName}"/>
+			<input class="form-control"    id="localName"	   name="localName"    placeholder="localname 입력하세요." value="${country.localName}"/>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="governmentForm">governmentForm</label>
-			<input class="form-control"    id="governmentForm"	   name="governmentForm"    placeholder="governmentForm를 입력하세요." value="${country.governmentForm}"/>
-		</div>
+			<input class="form-control"    id="governmentForm"	   name="governmentForm"    placeholder="governmentForm을 입력하세요." value="${country.governmentForm}"/>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="headOfState">headOfState</label>
-			<input class="form-control"    id="headOfState"	   name="headOfState"    placeholder="대통령의 이름를 입력하세요." value="${country.headOfState}"/>
-		</div>
+			<input class="form-control"    id="headOfState"	   name="headOfState"    placeholder="대통령의 이름을 입력하세요." value="${country.headOfState}"/>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="capital">capital</label>
 			<input class="form-control"    id="capital"	   name="capital"    placeholder="수도를 입력하세요." value="${country.capital}"/>
-		</div>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="code2">code2</label>

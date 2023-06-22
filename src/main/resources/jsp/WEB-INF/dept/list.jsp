@@ -18,6 +18,10 @@
 body{
 	margin: 10px;
 }
+h1{
+	margin: 0px;
+	padding: 0px;
+}
 </style>
 
 <title>list.jsp</title>

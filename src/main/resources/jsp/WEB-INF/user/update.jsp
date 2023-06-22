@@ -14,15 +14,19 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 <title>update.jsp</title>
 </head>
 <body>
 <h1>User Update 사용자 수정</h1>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
-<a href="/user/list">/user/list</a>
+<a href="/user/list">User List</a>
 <hr>
 <section class="container">
 	<form action="/user/update" method="post">
@@ -39,7 +43,7 @@
 			<label class="form-lable mb-2" for="role">role</label>
 			<input class="form-control"    id="role"	name="role" placeholder="회원등급을 입력하세요." value="${user.role}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-dark">Submit</button>
 	</form>	
 </section>
 <hr>

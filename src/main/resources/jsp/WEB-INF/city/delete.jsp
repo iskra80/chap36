@@ -14,15 +14,19 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 <title>delete.jsp</title>
 </head>
 <body>
 <h1>City Delete 도시 삭제</h1>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
-<a href="/city/list">/city/list</a>
+<a href="/city/list">City List</a>
 <hr>
 <section class="container">
 	<form action="/city/delete" method="post">
@@ -51,7 +55,7 @@
 			<input class="form-control"    id="population"	  ame="population"     value="${city.population}" disabled="disabled"/>
 			<input class="form-control"    id="population"	  name="population"     value="${city.population}" type="hidden"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-dark">Submit</button>
 	</form>	
 </section>
 <hr>

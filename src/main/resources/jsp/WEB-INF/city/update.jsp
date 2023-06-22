@@ -14,15 +14,19 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 <title>update.jsp</title>
 </head>
 <body>
 <h1>City Update 도시 수정</h1>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
-<a href="/city/list">/city/list</a>
+<a href="/city/list">City List</a>
 <hr>
 <section class="container">
 	<form action="/city/update" method="post">
@@ -47,7 +51,7 @@
 			<label class="form-lable mb-2" for="population">population</label>
 			<input class="form-control"    id="population"	   name="population"    placeholder="인구수를 입력하세요." value="${city.population}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-dark">Submit</button>
 	</form>	
 </section>
 <hr>

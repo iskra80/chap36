@@ -14,15 +14,19 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 <title>delete.jsp</title>
 </head>
 <body>
 <h1>User Delete 사용자 삭제</h1>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
-<a href="/user/list">/user/list</a>
+<a href="/user/list">User List</a>
 <hr>
 <section class="container">
 	<form action="/user/delete" method="post">
@@ -41,7 +45,7 @@
 			<input class="form-control"    id="role"	name="role"    placeholder="최고급여를 입력하세요." value="${user.role}" disabled="disabled"/>
 			<input class="form-control"    id="role"	name="role"    placeholder="최고급여를 입력하세요." value="${user.role}" type="hidden"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-dark">Submit</button>
 	</form>	
 </section>
 <hr>

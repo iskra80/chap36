@@ -3,6 +3,8 @@ package com.example.imple.user.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -27,7 +29,10 @@ public class UserCreateController implements CreateController<UserDTO> {
 
 	@Autowired
 	UserMapper mapper;
-
+	
+	@Autowired
+	BCryptPasswordEncoder encoder;
+	
 	@Override
 	public void create(Model model, HttpServletRequest request) {
 		log.info("GET create()...");
@@ -53,6 +58,7 @@ public class UserCreateController implements CreateController<UserDTO> {
 		var user = dto.getModel();
 		
 		try {
+			user.setPassword(encoder.encode(user.getPassword()));
 			mapper.insertUser(user);
 		} catch (DuplicateKeyException e) {
 			binding.reject("duplicate key", "회원id가 중복됩니다.");

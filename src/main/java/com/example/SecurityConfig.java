@@ -17,8 +17,13 @@ public class SecurityConfig {
 	@Autowired
 	UserDetailsService userDetailsService;
 	
+//	@Bean
+//	PasswordEncoder encoder() {
+//		return new BCryptPasswordEncoder();
+//	}
+	
 	@Bean
-	PasswordEncoder encoder() {
+	BCryptPasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
 	}
 	

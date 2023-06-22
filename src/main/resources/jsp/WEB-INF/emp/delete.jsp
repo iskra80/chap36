@@ -14,15 +14,19 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
+<style type="text/css">
+body{
+	margin: 10px;
+}
+</style>
 <title>delete.jsp</title>
 </head>
 <body>
 <h1>Emp Delete 직원 삭제</h1>
 <hr>
-<a href="/">Home</a>
+<a href="/" class="btn btn-success">Home</a>
 <hr>
-<a href="/emp/list">/emp/list</a>
+<a href="/emp/list">EMP List</a>
 <hr>
 <section class="container">
 	<form action="/emp/delete" method="post">
@@ -71,7 +75,7 @@
 			<input class="form-control"    id="deptno" name="deptno" value="${emp.deptno}" disabled="disabled"/>
 			<input class="form-control"    id="deptno" name="deptno" value="${emp.deptno}" type="hidden"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-dark">Submit</button>
 	</form>	
 </section>
 <hr>

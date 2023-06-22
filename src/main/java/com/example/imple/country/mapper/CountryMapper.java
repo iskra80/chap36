@@ -21,5 +21,5 @@ public interface CountryMapper {
 	
 	int insertCountry(Country country);
 	int updateCountry(Country country);
-//	int delete(String code);
+	int delete(String code);
 }

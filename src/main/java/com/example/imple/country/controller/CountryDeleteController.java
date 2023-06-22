@@ -15,6 +15,8 @@ import com.example.imple.city.model.CityDTO;
 import com.example.imple.country.mapper.CountryMapper;
 import com.example.imple.country.model.CountryDTO;
 import com.example.standard.controller.CreateController;
+import com.example.standard.controller.DeleteController;
+import com.example.standard.controller.DetailController;
 import com.example.standard.controller.UpdateController;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,13 +25,13 @@ import oracle.net.aso.m;
 
 @Controller
 @RequestMapping("/country")
-public class CountryUpdateController implements UpdateController<CountryDTO> {
+public class CountryDeleteController implements DeleteController<CountryDTO> {
 	
 	@Autowired
 	CountryMapper mapper;
 		
 	@Override
-	public void update(Model model, HttpServletRequest request) {
+	public void delete(Model model, HttpServletRequest request) {
 		var error = request.getParameter("error");
 		if(Objects.isNull(error)) {
 			var session = request.getSession();
@@ -37,47 +39,36 @@ public class CountryUpdateController implements UpdateController<CountryDTO> {
 			session.removeAttribute("binding");
 			
 			}
-		
 		var code = request.getParameter("code");
-		if(Objects.nonNull(code)) {	
+		if(Objects.nonNull(code)) {
 			var country= mapper.selectByCode(code);
 			model.addAttribute("country", country);
 		}
-		
-
 	}
-	
+
 	@Override
-	public String update(@Valid CountryDTO dto, BindingResult binding, Model model, HttpServletRequest request,
+	public String delete(@Valid CountryDTO dto, BindingResult binding, Model model, HttpServletRequest request,
 			RedirectAttributes attr) {
 		
 		var session = request.getSession();
 		session.setAttribute("country", dto);
 		session.setAttribute("binding", binding);
 		
-		var code = dto.getCode().trim();
-		
-		if(!code.equals(""))
-			if(code.length() !=3) {
-				binding.rejectValue("countryCode","9999", "3자리로 입력하세요");
-			}
-		
 		if(binding.hasErrors()) {
 			
-			return "redirect:/country/update?error";
+			return "redirect:/country/delete?error";
 		}
 		
 		var country =  dto.getModel();
 		
 		try {
-			mapper.updateCountry(country);		
+			mapper.delete(country.getCode());			
 		} catch (DataIntegrityViolationException e) {
 			binding.reject("foreign","입력한 국가코드는 없습니다.");
-			return "redirect:/country/update?error";
+			return "redirect:/country/delete?error";
 		}
 				
-		return "redirect:/country/success?update";
+		return "redirect:/country/success?delete";
 	}
-
 	
 }
